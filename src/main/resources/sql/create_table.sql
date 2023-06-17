@@ -17,6 +17,7 @@ create table Osoba (
   id_osoba INT NOT NULL AUTO_INCREMENT,
   rola_id INT,
   kraj_id INT,
+  platnosc_id INT,
   imie VARCHAR(255),
   drugie_imie VARCHAR(255),
   nazwisko VARCHAR(255),
@@ -33,7 +34,7 @@ create table Osoba (
 drop table if exists Przedmiot;
 create table Przedmiot (
   id_przedmiot INT NOT NULL AUTO_INCREMENT,
-  id_osoba INT,
+  id_ocena INT,
   id_sala_wykladowa INT,
   nazwa VARCHAR(255),
   opis_zajec VARCHAR(255),
@@ -44,11 +45,11 @@ create table Przedmiot (
 
 drop table if exists Ocena;
 create table Ocena (
-  id_osoba INT NOT NULL AUTO_INCREMENT,
+  id_ocena INT NOT NULL AUTO_INCREMENT,
   id_przedmiotu INT,
   wartosc DECIMAL(10,2),
   data_wpisania_oceny DATETIME,
-  PRIMARY KEY (id_osoba)
+  PRIMARY KEY (id_ocena)
 );
 
 drop table if exists PlanZajec;
@@ -72,7 +73,7 @@ create table SalaWykladowa (
 drop table if exists Biblioteka;
 create table Biblioteka (
   id_biblioteka INT NOT NULL AUTO_INCREMENT,
-  id_ksiazka VARCHAR(255),
+  id_ksiazka INT,
   data_wypozyczenia DATETIME,
   data_rezerwacji DATETIME,
   PRIMARY KEY (id_biblioteka)
@@ -81,9 +82,9 @@ create table Biblioteka (
 drop table if exists Ksiazka;
 create table Ksiazka (
   id_ksiazka INT NOT NULL AUTO_INCREMENT,
-  tytuł VARCHAR(255),
-  id_wypozyczył INT,
-  id_zarezerwował INT,
+  tytul VARCHAR(255),
+  id_wypozyczyl INT,
+  id_zarezerwowal INT,
   po_terminie_oddania BIT,
   PRIMARY KEY (id_ksiazka)
 );
@@ -97,3 +98,35 @@ create table Platnosc (
   PRIMARY KEY (id_platnosc)
 );
 
+ALTER TABLE Osoba
+ADD CONSTRAINT FK_Osoba_Rola
+FOREIGN KEY (rola_id) REFERENCES Rola(id_rola);
+
+ALTER TABLE Osoba
+ADD CONSTRAINT FK_Osoba_Kraj
+FOREIGN KEY (kraj_id) REFERENCES Kraj(id_kraj);
+
+ALTER TABLE Osoba
+ADD CONSTRAINT FK_Osoba_Platnosc
+FOREIGN KEY (platnosc_id) REFERENCES Platnosc(id_platnosc);
+
+ALTER TABLE Przedmiot
+ADD CONSTRAINT FK_Przedmiot_Ocena
+FOREIGN KEY (id_ocena) REFERENCES Ocena(id_ocena);
+
+ALTER TABLE Przedmiot
+ADD CONSTRAINT FK_Przedmiot_SalaWykladowa
+FOREIGN KEY (id_sala_wykladowa) REFERENCES SalaWykladowa(id_sala_wykladowa);
+
+ALTER TABLE Biblioteka
+ADD CONSTRAINT FK_Biblioteka_Ksiazka
+FOREIGN KEY (id_ksiazka) REFERENCES Ksiazka(id_ksiazka);
+
+drop table if exists PlanZajecPrzedmiot;
+create table PlanZajecPrzedmiot (
+  id_plan_zajec INT NOT NULL,
+  id_przedmiot INT NOT NULL,
+  CONSTRAINT PK_PlanZajecPrzedmiot PRIMARY KEY (id_plan_zajec, id_przedmiot),
+  CONSTRAINT FK_PlanZajec FOREIGN KEY (id_plan_zajec) REFERENCES PlanZajec(id_plan_zajec),
+  CONSTRAINT FK_Przedmiot FOREIGN KEY (id_przedmiot) REFERENCES Przedmiot(id_przedmiot)
+);
