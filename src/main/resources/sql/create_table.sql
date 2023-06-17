@@ -46,7 +46,6 @@ create table Przedmiot (
 drop table if exists Ocena;
 create table Ocena (
   id_ocena INT NOT NULL AUTO_INCREMENT,
-  id_przedmiotu INT,
   wartosc DECIMAL(10,2),
   data_wpisania_oceny DATETIME,
   PRIMARY KEY (id_ocena)
@@ -56,7 +55,6 @@ drop table if exists PlanZajec;
 create table PlanZajec (
   id_plan_zajec INT NOT NULL AUTO_INCREMENT,
   id_sala_wykladowa INT,
-  id_przedmiotu INT,
   godzina_rozpoczęcia VARCHAR(255),
   godzina_zakonczenia VARCHAR(255),
   PRIMARY KEY (id_plan_zajec)
