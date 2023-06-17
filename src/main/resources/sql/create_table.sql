@@ -1,16 +1,19 @@
-drop table Kraj if exists; createtable Kraj (
+drop table Kraj if exists;
+create table Kraj (
   id_kraj INTEGER NOT NULL AUTO_INCREMENT,
   nazwa VARCHAR(100),
   PRIMARY key (id_kraj)
 )
 
-drop table Rola if exists; createtable Rola (
+drop table Rola if exists;
+create table Rola (
   id_rola INTEGER NOT NULL AUTO_INCREMENT,
   nazwa VARCHAR(100),
   PRIMARY key (id_rola)
 )
 
-drop table Osoba if exists; createtable Osoba (
+drop table Osoba if exists;
+create table Osoba (
   id_osoba INTEGER NOT NULL AUTO_INCREMENT,
   rola_id VARCHAR(100),
   kraj_id VARCHAR(100),
@@ -27,7 +30,8 @@ drop table Osoba if exists; createtable Osoba (
   PRIMARY key (id_osoba)
 )
 
-drop table Przedmiot if exists; createtable Przedmiot (
+drop table Przedmiot if exists;
+create table Przedmiot (
   id_przedmiot INTEGER NOT NULL AUTO_INCREMENT,
   id_osoba VARCHAR(100),
   id_sala_wykladowa VARCHAR(100),
@@ -38,7 +42,8 @@ drop table Przedmiot if exists; createtable Przedmiot (
   PRIMARY key (id_przedmiot)
 )
 
-drop table Ocena if exists; createtable Ocena (
+drop table Ocena if exists;
+create table Ocena (
   id_osoba INTEGER NOT NULL AUTO_INCREMENT,
   id_przedmiotu VARCHAR(100),
   wartosc double,
@@ -46,7 +51,8 @@ drop table Ocena if exists; createtable Ocena (
   PRIMARY key (id_osoba)
 )
 
-drop table PlanZajęc if exists; createtable PlanZajęc (
+drop table PlanZajęc if exists;
+create table PlanZajęc (
   id_plan_zajec INTEGER NOT NULL AUTO_INCREMENT,
   id_sala_wykladowa VARCHAR(100),
   id_przedmiotu VARCHAR(100),
@@ -56,14 +62,16 @@ drop table PlanZajęc if exists; createtable PlanZajęc (
 
 )
 
-drop table SalaWykladowa if exists; createtable SalaWykladowa (
+drop table SalaWykladowa if exists;
+create table SalaWykladowa (
   id_sala_wykladowa INTEGER NOT NULL AUTO_INCREMENT,
   numer_sali VARCHAR(100),
   adres_sali VARCHAR(100),
   PRIMARY key (id_sala_wykladowa)
 )
 
-drop table Biblioteka if exists; createtable Biblioteka {
+drop table Biblioteka if exists;
+create table Biblioteka {
   id_biblioteka INTEGER NOT NULL AUTO_INCREMENT,
   id_ksiazka VARCHAR(100),
   data_wypozyczenia DATETIME,
@@ -71,7 +79,8 @@ drop table Biblioteka if exists; createtable Biblioteka {
   PRIMARY key (id_biblioteka)
 }
 
-drop table Ksiazka if exists; createtable Ksiazka {
+drop table Ksiazka if exists;
+create table Ksiazka {
   id_ksiazka INTEGER NOT NULL AUTO_INCREMENT,
   tytuł VARCHAR(100),
   wypozyczył Osoba,
@@ -80,7 +89,8 @@ drop table Ksiazka if exists; createtable Ksiazka {
   PRIMARY key (id_ksiazka)
 }
 
-drop table Płatnosc if exists; createtable Płatnosc {
+drop table Płatnosc if exists;
+create table Płatnosc {
   id_platnosc INTEGER NOT NULL AUTO_INCREMENT,
   data DATETIME,
   wartosc double ,
