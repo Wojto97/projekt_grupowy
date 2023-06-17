@@ -54,7 +54,6 @@ create table Ocena (
 drop table if exists PlanZajec;
 create table PlanZajec (
   id_plan_zajec INT NOT NULL AUTO_INCREMENT,
-  id_sala_wykladowa INT,
   godzina_rozpoczęcia VARCHAR(255),
   godzina_zakonczenia VARCHAR(255),
   PRIMARY KEY (id_plan_zajec)
