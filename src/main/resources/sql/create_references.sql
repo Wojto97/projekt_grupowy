@@ -1,14 +1,14 @@
 ALTER TABLE Osoba
 ADD CONSTRAINT FK_Osoba_Rola
-FOREIGN KEY (rola_id) REFERENCES Rola(id_rola);
+FOREIGN KEY (id_rola) REFERENCES Rola(id_rola);
 
 ALTER TABLE Osoba
 ADD CONSTRAINT FK_Osoba_Kraj
-FOREIGN KEY (kraj_id) REFERENCES Kraj(id_kraj);
+FOREIGN KEY (id_kraj) REFERENCES Kraj(id_kraj);
 
 ALTER TABLE Osoba
 ADD CONSTRAINT FK_Osoba_Platnosc
-FOREIGN KEY (platnosc_id) REFERENCES Platnosc(id_platnosc);
+FOREIGN KEY (id_platnosc) REFERENCES Platnosc(id_platnosc);
 
 ALTER TABLE Przedmiot
 ADD CONSTRAINT FK_Przedmiot_Ocena
