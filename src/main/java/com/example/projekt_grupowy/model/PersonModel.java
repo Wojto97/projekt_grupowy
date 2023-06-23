@@ -112,7 +112,7 @@ public class PersonModel {
         this.password = password;
     }
 
-    public void setAktywny(String aktywny) {
+    public void setAktywny(boolean aktywny) {
         this.aktywny = aktywny;
     }
 
@@ -164,7 +164,7 @@ public class PersonModel {
         return this.password;
     }
 
-    public String getAktywny() {
+    public boolean getAktywny() {
         return this.aktywny;
     }
 
