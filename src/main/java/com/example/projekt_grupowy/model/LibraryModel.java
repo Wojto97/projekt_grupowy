@@ -12,10 +12,8 @@ public class LibraryModel {
     private int libraryId;
     @Column(name = "id_ksiazka", nullable = false)
     private int bookId;
-
     @Column(name = "data_wypozyczenia", nullable = false)
     private int rentalDate;
-
     @Column(name = "data_rezerwacji", nullable = false)
     private int reservationDate;
 

@@ -11,7 +11,6 @@ public class LectureHallModel {
     private int lectureHallId;
     @Column(name = "numer_sali", nullable = false)
     private String lectureHallNumber;
-
     @Column(name = "adres_sali", nullable = false)
     private String lectureHallAddress;
 

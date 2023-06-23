@@ -5,7 +5,7 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "osoba")
+@Table(name = "Osoba")
 public class PersonModel {
 
     @Id
@@ -28,12 +28,14 @@ public class PersonModel {
     private String peselNumber;
     @Column(name = "ulica", nullable = true)
     private String street;
-    @Column(name = "miasto", nullable = false)
+    @Column(name = "miejscowosc", nullable = false)
     private String city;
     @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "haslo", nullable = false)
     private String password;
+    @Column(name = "aktywny", nullable = false)
+    private boolean aktywny;
     @Column(name = "ilosc_nieudanych_prob_logowania", nullable = false)
     private int failedLoginsCount;
 
@@ -48,6 +50,7 @@ public class PersonModel {
                        String city,
                        String email,
                        String password,
+                       boolean aktywny,
                        int failedLoginsCount
     ) {
         this.personRoleId = personRoleId;
@@ -61,6 +64,7 @@ public class PersonModel {
         this.city = city;
         this.email = email;
         this.password = password;
+        this.aktywny = aktywny;
         this.failedLoginsCount = failedLoginsCount;
     }
 
@@ -106,6 +110,10 @@ public class PersonModel {
 
     public void setPersonPassword(String password) {
         this.password = password;
+    }
+
+    public void setAktywny(String aktywny) {
+        this.aktywny = aktywny;
     }
 
     public void setPersonFailedLoginsCount(int failedLoginsCount) {
@@ -154,6 +162,10 @@ public class PersonModel {
 
     public String getPersonPassword() {
         return this.password;
+    }
+
+    public String getAktywny() {
+        return this.aktywny;
     }
 
     public int getPersonFailedLoginsCount() {

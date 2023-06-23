@@ -14,7 +14,7 @@
         <property name="username" value="bonusbgc"/>
         <property name="password" value="rejony2137"/>
     </bean>
-
+    <tx:annotation-driven />
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.example.projekt_grupowy.model"/>
@@ -37,6 +37,3 @@
         <property name="entityManagerFactory" ref="entityManagerFactoryBean"/>
     </bean>
 </beans>
-
-
-

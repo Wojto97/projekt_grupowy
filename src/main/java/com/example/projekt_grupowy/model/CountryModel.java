@@ -4,7 +4,7 @@ package com.example.projekt_grupowy.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "kraj")
+@Table(name = "Kraj")
 public class CountryModel {
     @Id
     @GeneratedValue

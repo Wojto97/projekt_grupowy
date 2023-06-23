@@ -3,7 +3,7 @@ package com.example.projekt_grupowy.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "rola")
+@Table(name = "Rola")
 public class RoleModel {
     @Id
     @GeneratedValue

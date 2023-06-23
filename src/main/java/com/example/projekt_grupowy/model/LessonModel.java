@@ -5,7 +5,7 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "przedmiot")
+@Table(name = "Przedmiot")
 public class LessonModel {
     @Id
     @GeneratedValue

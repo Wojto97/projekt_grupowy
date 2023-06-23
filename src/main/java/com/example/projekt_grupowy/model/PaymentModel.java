@@ -12,7 +12,6 @@ public class PaymentModel {
     private int paymentId;
     @Column(name = "wartosc", nullable = false)
     private int value;
-
     @Column(name = "zaplanowana", nullable = false)
     private boolean isPlanned;
 
