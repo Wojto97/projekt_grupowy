@@ -14,15 +14,12 @@ public class BookModel {
     private int bookId;
     @Column(name = "tytul", nullable = false)
     private String tittle;
-
     @Column(name = "id_wypozyczyl", nullable = true)
     private int rentalPersonId;
-
     @Column(name = "id_zarezerwowal", nullable = true)
     private int reservationPersonId;
-
     @Column(name = "po_terminie_oddania", nullable = true)
-    private Boolean afterDueDate;
+    private boolean afterDueDate;
 
     public BookModel(
             String tittle,
@@ -36,7 +33,7 @@ public class BookModel {
         this.reservationPersonId = reservationPersonId;
     }
 
-    public void setAfterDueDate(Boolean afterDueDate) {
+    public void setAfterDueDate(boolean afterDueDate) {
         this.afterDueDate = afterDueDate;
     }
 
@@ -52,7 +49,7 @@ public class BookModel {
         this.rentalPersonId = rentalPersonId;
     }
 
-    public Boolean getAfterDueDate() {
+    public boolean getAfterDueDate() {
         return afterDueDate;
     }
 
